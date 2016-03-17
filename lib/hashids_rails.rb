@@ -10,12 +10,12 @@ module HashidsRails
   end
 
   def self.hide(id, salt)
-    hashids = Hashids.new(salt, 3)
+    hashids = Hashids.new(salt, 6)
     hashids.encode id
   end
 
   def self.show(id, salt)
-    hashids = Hashids.new(salt, 3)
+    hashids = Hashids.new(salt, 6)
     decoded = hashids.decode id
     decoded[0] if decoded
   end
