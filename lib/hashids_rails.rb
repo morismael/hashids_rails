@@ -51,12 +51,9 @@ module HashidsRails
   end
 
   module InstanceMethods
+    alias_mathod :hashed_id, :to_param
     def to_param
       HashidsRails.hide(self.id, self.class.hash_salt)
-    end
-
-    def hashed_id
-      HashidsRails.show(self.id, self.class.hash_salt)
     end
 
     # Override ActiveRecord::Persistence#reload
