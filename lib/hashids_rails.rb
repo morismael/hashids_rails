@@ -55,6 +55,10 @@ module HashidsRails
       HashidsRails.hide(self.id, self.class.hash_salt)
     end
 
+    def hashed_id
+      HashidsRails.show(self.id, self.class.hash_salt)
+    end
+
     # Override ActiveRecord::Persistence#reload
     # passing in an options flag with { no_hashed_id: true }
     def reload(options = nil)
